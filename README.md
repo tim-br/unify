@@ -53,17 +53,6 @@ cd pyunify
 uv pip install -e .
 ```
 
-**Verify installation:**
-
-```bash
-# Download and run the test script
-curl -O https://raw.githubusercontent.com/tim-br/pyunify/main/test_install.py
-python test_install.py
-
-# Or if installed from source
-python test_install.py
-```
-
 ## Quick Start
 
 **Interactive Python session:**
