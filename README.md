@@ -259,18 +259,6 @@ Covers:
 - Composing with AND/OR
 - Understanding backtracking behavior
 
-### Tree Visualization (`tree_visualization.py`)
-Binary search tree with SVG output - demonstrates integration with imperative Python:
-```bash
-uv run examples/tree_visualization.py
-```
-
-Shows how to:
-- Mix logic predicates with imperative code
-- Use logic programming for queries
-- Use regular Python for I/O and computation
-- Generate visual output (creates `tree.svg`)
-
 ## How It Works
 
 PyUnify uses Python generators to implement Prolog's search strategy:
