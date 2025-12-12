@@ -16,19 +16,69 @@ PyUnify brings Prolog-style logic programming to Python with a clean, Pythonic A
 
 ## Installation
 
+**From GitHub (recommended):**
+
+```bash
+# Using uv (pinned to v0.1.0)
+uv pip install git+https://github.com/tim-br/pyunify.git@v0.1.0
+
+# Or using pip
+pip install git+https://github.com/tim-br/pyunify.git@v0.1.0
+
+# Or install latest main branch
+uv pip install git+https://github.com/tim-br/pyunify.git
+```
+
+**In another project's `pyproject.toml`:**
+
+```toml
+[project]
+dependencies = [
+    # Pinned to v0.1.0 (recommended)
+    "pyunify @ git+https://github.com/tim-br/pyunify.git@v0.1.0",
+
+    # Or use latest main branch
+    # "pyunify @ git+https://github.com/tim-br/pyunify.git",
+]
+```
+
+**For development:**
+
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/tim-br/pyunify.git
 cd pyunify
 
-# Install with uv
+# Install in editable mode
 uv pip install -e .
+```
 
-# Or with pip
-pip install -e .
+**Verify installation:**
+
+```bash
+# Download and run the test script
+curl -O https://raw.githubusercontent.com/tim-br/pyunify/main/test_install.py
+python test_install.py
+
+# Or if installed from source
+python test_install.py
 ```
 
 ## Quick Start
+
+**Interactive Python session:**
+
+```python
+>>> from pyunify import Var, run, unify
+>>>
+>>> x = Var('X')
+>>> for sol in run(unify(x, 42), X=x):
+...     print(sol)
+...
+Solution(X=42)
+```
+
+**Complete example:**
 
 ```python
 from pyunify import Var, run, member, AND
