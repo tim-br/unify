@@ -1,6 +1,6 @@
 """Test simple API"""
 
-from pyunify import Var, member, unify, run, AND, OR
+from unify import Var, member, unify, run, AND, OR
 
 def test_unify(x):
     """Example predicate that unifies x with a member of [1, 2, 3]"""
@@ -46,6 +46,9 @@ def main():
     print("\nTest 3: Chaining unifications")
     x2 = Var('X')
     sol = next(run(test_unify(x2), X=x2), None)
+    q = Var()
+    unify(q, x2)
+    print(f"V IS {q}")
     if sol:
         print(f"  x2 = {sol.X}")
         v = Var('V')
@@ -58,8 +61,8 @@ def main():
     print("  (Should get 3x3 = 9 solutions from backtracking)")
     x3 = Var('X')
     y3 = Var('Y')
-    for solution in run(test_compose(x3, y3), X=x3, Y=y3):
-        print(f"  X = {solution.X}, Y = {solution.Y}")
+    for solution in run(test_compose(x3, y3), Q=x3, V=y3):
+        print(f"  X = {solution.Q}, Y = {solution.V}")
 
     # Test 5: Composing predicates with OR - shows alternative solutions
     print("\nTest 5: Composing predicates with OR (test_compose_or)")

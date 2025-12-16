@@ -2,7 +2,7 @@
 Family tree - demonstrating logic programming in Python
 """
 
-from pyunify import Var, unify, run, traced, OR, AND
+from unify import Var, unify, run, traced, OR, AND
 
 # Define our facts as a Python data structure
 PARENTS = [

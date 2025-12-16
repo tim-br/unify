@@ -1,10 +1,10 @@
-# PyUnify
+# unify
 
 Logic programming in Python using generators for automatic backtracking.
 
 ## Overview
 
-PyUnify brings Prolog-style logic programming to Python with a clean, Pythonic API. It uses Python's generator mechanism to implement automatic backtracking, allowing you to write declarative logic programs that explore solution spaces naturally.
+unify brings Prolog-style logic programming to Python with a clean, Pythonic API. It uses Python's generator mechanism to implement automatic backtracking, allowing you to write declarative logic programs that explore solution spaces naturally.
 
 **Key Features:**
 - **Automatic backtracking** via Python generators
@@ -16,17 +16,17 @@ PyUnify brings Prolog-style logic programming to Python with a clean, Pythonic A
 
 ## Installation
 
-**From GitHub (recommended):**
+**From GitHub:**
 
 ```bash
 # Using uv (pinned to v0.1.0)
-uv pip install git+https://github.com/tim-br/pyunify.git@v0.1.0
+uv pip install git+https://github.com/tim-br/unify.git@v0.1.0
 
 # Or using pip
-pip install git+https://github.com/tim-br/pyunify.git@v0.1.0
+pip install git+https://github.com/tim-br/unify.git@v0.1.0
 
 # Or install latest main branch
-uv pip install git+https://github.com/tim-br/pyunify.git
+uv pip install git+https://github.com/tim-br/unify.git
 ```
 
 **In another project's `pyproject.toml`:**
@@ -35,10 +35,10 @@ uv pip install git+https://github.com/tim-br/pyunify.git
 [project]
 dependencies = [
     # Pinned to v0.1.0 (recommended)
-    "pyunify @ git+https://github.com/tim-br/pyunify.git@v0.1.0",
+    "pyunify-logic @ git+https://github.com/tim-br/unify.git@v0.1.0",
 
     # Or use latest main branch
-    # "pyunify @ git+https://github.com/tim-br/pyunify.git",
+    # "pyunify-logic @ git+https://github.com/tim-br/unify.git",
 ]
 ```
 
@@ -46,8 +46,8 @@ dependencies = [
 
 ```bash
 # Clone the repository
-git clone https://github.com/tim-br/pyunify.git
-cd pyunify
+git clone https://github.com/tim-br/unify.git
+cd unify
 
 # Install in editable mode
 uv pip install -e .
@@ -58,7 +58,7 @@ uv pip install -e .
 **Interactive Python session:**
 
 ```python
->>> from pyunify import Var, run, unify
+>>> from unify import Var, run, unify
 >>>
 >>> x = Var('X')
 >>> for sol in run(unify(x, 42), X=x):
@@ -70,7 +70,7 @@ Solution(X=42)
 **Complete example:**
 
 ```python
-from pyunify import Var, run, member, AND
+from unify import Var, run, member, AND
 
 # Define a predicate
 def test_unify(x):
@@ -261,7 +261,7 @@ Covers:
 
 ## How It Works
 
-PyUnify uses Python generators to implement Prolog's search strategy:
+unify uses Python generators to implement Prolog's search strategy:
 
 - **`yield`** = success (one solution found)
 - **`return`** = failure (triggers backtracking)
@@ -272,7 +272,7 @@ When you call `next()` on a generator, it continues from where it left off, natu
 
 ## Design Philosophy
 
-PyUnify embraces **hybrid programming**:
+unify embraces **hybrid programming**:
 - Use logic programming for queries, search, and constraint satisfaction
 - Use imperative Python for I/O, computation, and side effects
 - Seamlessly integrate both paradigms in the same program

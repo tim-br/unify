@@ -2,7 +2,7 @@
 Classic Prolog list operations
 """
 
-from pyunify import Var, run, member, append, reverse, length
+from unify import Var, run, member, append, reverse, length
 
 def main():
     print("="*70)
